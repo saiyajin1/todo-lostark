@@ -1,8 +1,9 @@
 import "./App.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Banner from "./components/Banner"
 import AccWideDailyTasks from "./components/AccWideDailyTasks"
 import AccController from "./components/AccController"
+import CharacterController from "./components/CharacterController"
 
 function App() {
   let localStorageName = "todolostark"
@@ -12,7 +13,7 @@ function App() {
   )
 
   function createAccount() {
-    return {
+    let freshAcc = {
       id: Date.now(),
       accountDailyTasks: {
         loginReward: false,
@@ -24,12 +25,11 @@ function App() {
       },
       characters: [],
     }
+    return freshAcc
   }
 
   function resetAccount() {
-    setAccount(
-      localStorage.setItem(localStorageName, JSON.stringify(createAccount()))
-    )
+    setAccount(createAccount())
   }
 
   function addCharacter(name) {
@@ -62,11 +62,40 @@ function App() {
     })
   }
 
+  function dailyReset() {
+    setAccount({
+      ...account,
+      accountDailyTasks: {
+        loginReward: false,
+        compassActivities: false,
+        monthlyRotatingEventDaily: false,
+        anguishedIslandDaily: false,
+        tradeEnergy: false,
+        rapport: false,
+      },
+      characters: account.characters.map((character) => {
+        return {
+          ...character,
+          characterDailyTasks: {
+            chaosDungeon1: false,
+            chaosDungeon2: false,
+            guardianRaid1: false,
+            guardianRaid2: false,
+            unaTask1: false,
+            unaTask2: false,
+            unaTask3: false,
+            guildDonation: false,
+            guildResearch: false,
+          },
+        }
+      }),
+    })
+  }
+
   let [selectedCharacter, setSelectedCharacter] = useState("none")
 
-  function selectCharacter(event) {
-    event.preventDefault()
-    console.log(event.target.value)
+  function selectCharacter(id) {
+    setSelectedCharacter(id)
   }
   let [lightsOn, setLightsOn] = useState(false)
 
@@ -74,35 +103,30 @@ function App() {
     setLightsOn(!lightsOn)
   }
 
+  useEffect(() => {
+    localStorage.setItem(localStorageName, JSON.stringify(account))
+  }, [localStorageName, account])
+
   return (
     <div className={`App ${lightsOn ? "Light" : "Dark"}`}>
       <Banner lightsOn={lightsOn} flipLights={flipLights} />
 
       <div className="Content">
-        <AccController />
+        <AccController
+          addCharacter={addCharacter}
+          removeCharacter={removeCharacter}
+          dailyReset={dailyReset}
+          selectedCharacter={selectedCharacter}
+        />
         <AccWideDailyTasks />
-        <div>
-          <div>character select</div>
-          <ul>
-            <li>login reward</li>
-            <li>compass activities</li>
-            <li>montly rotating event daily</li>
-            <li>compass activities</li>
-            <li>rapport</li>
-            <li>trade energy</li>
-          </ul>
-        </div>
-        <div>character select zone</div>
+        <CharacterController
+          characters={account.characters}
+          selectCharacter={selectCharacter}
+        />
         <div>selected character quests</div>
         <div className="Button-Text-Pair">
           <div>Account</div>
-          <button
-            id="salata"
-            className="Button-Danger"
-            onClick={selectCharacter}
-          >
-            Reset
-          </button>
+          <button onClick={resetAccount}>Reset Account</button>
         </div>
       </div>
     </div>

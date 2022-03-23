@@ -1,10 +1,18 @@
 import React from "react"
 
-const AccController = () => {
+const AccController = ({
+  addCharacter,
+  removeCharacter,
+  dailyReset,
+  selectedCharacter,
+}) => {
   return (
     <div className="Acc-Controller">
-      <button>Add Character</button>
-      <button>Daily Reset</button>
+      <button onClick={addCharacter}>Add Character</button>
+      <button onClick={() => removeCharacter(selectedCharacter)}>
+        Remove Selected Character
+      </button>
+      <button onClick={dailyReset}>Daily Reset</button>
     </div>
   )
 }
