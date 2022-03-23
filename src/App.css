@@ -1,38 +1,60 @@
+/* App */
 .App {
-  text-align: center;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Light {
+  background-color: #fafafa;
+  color: #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Dark {
+  background-color: #333;
+  color: #fafafa;
+}
+/* App */
+
+/* Header */
+.Banner {
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Banner-Clickable-Container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Banner-Clickable-Container > * {
+  margin-left:0.5rem;
+}
+
+.LightSwitch{
+  cursor: pointer;
+}
+/* Header */
+
+/*PageContent*/
+.Content{
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
+/*PageContent*/
 
-.App-link {
-  color: #61dafb;
+/* Acc-Controller */
+.Acc-Controller{
+  height: 10%;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Acc-Controller */
