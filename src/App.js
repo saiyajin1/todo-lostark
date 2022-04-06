@@ -1,9 +1,10 @@
 import "./App.css"
 import { useEffect, useState } from "react"
+import Modal from "./components/Modal"
 import Banner from "./components/Banner"
-import AccWideDailyTasks from "./components/AccWideDailyTasks"
 import AccController from "./components/AccController"
 import CharacterController from "./components/CharacterController"
+import TaskListAcc from "./components/TaskListAcc"
 
 function App() {
   let localStorageName = "todolostark"
@@ -16,12 +17,11 @@ function App() {
     let freshAcc = {
       id: Date.now(),
       accountDailyTasks: {
-        loginReward: false,
-        compassActivities: false,
-        monthlyRotatingEventDaily: false,
-        anguishedIslandDaily: false,
-        tradeEnergy: false,
-        rapport: false,
+        ghostShip: false,
+        chaosGate: false,
+        worldBoss: false,
+        adventureIsland: false,
+        anguishedIsland: false,
       },
       characters: [],
     }
@@ -41,6 +41,7 @@ function App() {
         chaosDungeon2: false,
         guardianRaid1: false,
         guardianRaid2: false,
+        challengeGuardianRaid1: false,
         unaTask1: false,
         unaTask2: false,
         unaTask3: false,
@@ -103,6 +104,18 @@ function App() {
     setLightsOn(!lightsOn)
   }
 
+  let [modalOn, setModalOn] = useState(false)
+
+  function openModal() {
+    setModalOn(true)
+  }
+
+  function closeModal() {
+    setModalOn(false)
+  }
+
+  let [characterNameInput, setCharacterNameInput] = useState("")
+
   useEffect(() => {
     localStorage.setItem(localStorageName, JSON.stringify(account))
   }, [localStorageName, account])
@@ -112,13 +125,14 @@ function App() {
       <Banner lightsOn={lightsOn} flipLights={flipLights} />
 
       <div className="Content">
+        <TaskListAcc account={account} setAccount={setAccount} />
         <AccController
-          addCharacter={addCharacter}
+          openModal={openModal}
           removeCharacter={removeCharacter}
           dailyReset={dailyReset}
           selectedCharacter={selectedCharacter}
+          addCharacter={addCharacter}
         />
-        <AccWideDailyTasks />
         <CharacterController
           characters={account.characters}
           selectCharacter={selectCharacter}
@@ -129,6 +143,17 @@ function App() {
           <button onClick={resetAccount}>Reset Account</button>
         </div>
       </div>
+      <Modal
+        modalOn={modalOn}
+        closeModal={closeModal}
+        characterNameInput={characterNameInput}
+        characterNameInputController={(name) => {
+          setCharacterNameInput(name)
+        }}
+        addCharacter={(name) => {
+          addCharacter(name)
+        }}
+      />
     </div>
   )
 }

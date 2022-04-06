@@ -1,14 +1,14 @@
 import React from "react"
 
 const AccController = ({
-  addCharacter,
+  openModal,
   removeCharacter,
   dailyReset,
   selectedCharacter,
 }) => {
   return (
     <div className="Acc-Controller">
-      <button onClick={addCharacter}>Add Character</button>
+      <button onClick={openModal}>Add Character</button>
       <button onClick={() => removeCharacter(selectedCharacter)}>
         Remove Selected Character
       </button>
