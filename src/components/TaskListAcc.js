@@ -14,7 +14,7 @@ const TaskListAcc = ({ account, setAccount }) => {
     <div className="Account-Wide-Tasks">
       <h3>Account Wide Tasks</h3>
       <div className="Select-Group">
-        {Object.keys(account.accountDailyTasks).map((prop, index) => {
+        {Object.keys(account.accountDailyTasks).map((prop) => {
           return (
             <div className="Select-Component" key={prop}>
               <input

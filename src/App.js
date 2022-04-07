@@ -5,6 +5,7 @@ import Banner from "./components/Banner"
 import AccController from "./components/AccController"
 import CharacterController from "./components/CharacterController"
 import TaskListAcc from "./components/TaskListAcc"
+import TaskListChar from "./components/TaskListChar"
 
 function App() {
   let localStorageName = "todolostark"
@@ -37,16 +38,10 @@ function App() {
       name: name,
       id: Date.now(),
       characterDailyTasks: {
-        chaosDungeon1: false,
-        chaosDungeon2: false,
-        guardianRaid1: false,
-        guardianRaid2: false,
-        challengeGuardianRaid1: false,
-        unaTask1: false,
-        unaTask2: false,
-        unaTask3: false,
+        chaosDungeon: false,
+        guardianRaid: false,
+        unaDaily: false,
         guildDonation: false,
-        guildResearch: false,
       },
     }
 
@@ -57,6 +52,7 @@ function App() {
   }
 
   function removeCharacter(id) {
+    setSelectedCharacter("none")
     setAccount({
       ...account,
       characters: account.characters.filter((character) => character.id !== id),
@@ -67,26 +63,20 @@ function App() {
     setAccount({
       ...account,
       accountDailyTasks: {
-        loginReward: false,
-        compassActivities: false,
-        monthlyRotatingEventDaily: false,
-        anguishedIslandDaily: false,
-        tradeEnergy: false,
-        rapport: false,
+        ghostShip: false,
+        chaosGate: false,
+        worldBoss: false,
+        adventureIsland: false,
+        anguishedIsland: false,
       },
       characters: account.characters.map((character) => {
         return {
           ...character,
           characterDailyTasks: {
-            chaosDungeon1: false,
-            chaosDungeon2: false,
-            guardianRaid1: false,
-            guardianRaid2: false,
-            unaTask1: false,
-            unaTask2: false,
-            unaTask3: false,
+            chaosDungeon: false,
+            guardianRaid: false,
+            unaDaily: false,
             guildDonation: false,
-            guildResearch: false,
           },
         }
       }),
@@ -137,7 +127,11 @@ function App() {
           characters={account.characters}
           selectCharacter={selectCharacter}
         />
-        <div>selected character quests</div>
+        <TaskListChar
+          account={account}
+          setAccount={setAccount}
+          selectedCharacter={selectedCharacter}
+        />
         <div className="Button-Text-Pair">
           <div>Account</div>
           <button onClick={resetAccount}>Reset Account</button>
