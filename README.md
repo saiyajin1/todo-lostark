@@ -1,5 +1,3 @@
-# Getting Started with Create React App
-
 In the project directory, you can run:
 ### `npm i`
 
@@ -9,4 +7,4 @@ In the project directory, you can run:
 
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-## Or visit: https://lost-ark-to-do.herokuapp.com/
+## Or visit: https://saiyajin1.github.io/todo-lostark/
