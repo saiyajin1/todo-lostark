@@ -1,10 +1,15 @@
 import React from "react"
 
-const CharacterController = ({ characters, selectCharacter }) => {
+const CharacterController = ({
+  characters,
+  selectedCharacter,
+  selectCharacter,
+}) => {
   return (
-    <div>
+    <div className="Char-Controller">
       {characters.map((character) => (
         <button
+          className={character.id === selectedCharacter ? " Selected" : ""}
           key={character.id}
           onClick={() => {
             selectCharacter(character.id)

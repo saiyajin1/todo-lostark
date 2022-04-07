@@ -125,6 +125,7 @@ function App() {
         />
         <CharacterController
           characters={account.characters}
+          selectedCharacter={selectedCharacter}
           selectCharacter={selectCharacter}
         />
         <TaskListChar
@@ -132,10 +133,11 @@ function App() {
           setAccount={setAccount}
           selectedCharacter={selectedCharacter}
         />
-        <div className="Button-Text-Pair">
-          <div>Account</div>
-          <button onClick={resetAccount}>Reset Account</button>
-        </div>
+      </div>
+      <div className="Footer">
+        <button className="Danger" onClick={resetAccount}>
+          Reset Account
+        </button>
       </div>
       <Modal
         modalOn={modalOn}

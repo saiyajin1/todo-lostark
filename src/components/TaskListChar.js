@@ -19,7 +19,7 @@ const TaskListChar = ({ account, setAccount, selectedCharacter }) => {
   }
 
   return (
-    <div>
+    <div className="Char-Tasks Border">
       {selectedCharacter !== "none" ? (
         <div className="Select-Group">
           {Object.keys(

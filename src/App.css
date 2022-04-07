@@ -1,16 +1,23 @@
 /* App */
 .App {
   height: 100%;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .Light {
-  background-color: #fafafa;
-  color: #333;
+  background-color: #a3e3ce;
+  color: #322d31;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .Dark {
-  background-color: #333;
-  color: #fafafa;
+  background-color: #322d31;
+  color: #a3e3ce;
 }
 /* App */
 
@@ -103,11 +110,16 @@
 /* Acc-Controller */
 .Acc-Controller {
   height: 10%;
-  width: 70%;
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin: 1rem;
+}
+
+.Acc-Controller > button {
+  height: auto;
 }
 /* Acc-Controller */
 
@@ -140,6 +152,68 @@
 
 /* Select Componenet */
 
+/*Char-Controller*/
+.Char-Controller {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-left: 3px solid #9ac3a6;
+  border-right: 3px solid #9ac3a6;
+  border-top: 3px solid #9ac3a6;
+}
+
+.Char-Controller > button {
+  width: 100%;
+  height: 2rem;
+  border-bottom: 5px solid #9ac3a6;
+}
+
+/*Char-Controller*/
+
+/*Char-Tasks*/
+.Char-Tasks {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: -webkit-fill-available;
+}
+
+.Char-Tasks > .Select-Group,
+h3 {
+  margin: 1rem;
+  text-align: center;
+}
+/*Char-Tasks*/
+
 img {
   width: 55px;
+}
+
+.Border {
+  border-left: 3px solid #9ac3a6;
+  border-right: 3px solid #9ac3a6;
+  border-bottom: 3px solid #9ac3a6;
+}
+
+.Selected {
+  border-bottom: none !important;
+  background: #5e896f;
+  color: #a3e3ce;
+}
+
+.Danger {
+  background: #d9534f;
+  color: #322d31;
+}
+
+.Footer {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
