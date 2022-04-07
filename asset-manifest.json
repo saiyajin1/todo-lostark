@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/todo-lostark/static/css/main.3b21bc20.css",
-    "main.js": "/todo-lostark/static/js/main.08ac341b.js",
+    "main.js": "/todo-lostark/static/js/main.cd1f9ec8.js",
     "static/js/787.efc2152c.chunk.js": "/todo-lostark/static/js/787.efc2152c.chunk.js",
     "index.html": "/todo-lostark/index.html",
     "main.3b21bc20.css.map": "/todo-lostark/static/css/main.3b21bc20.css.map",
-    "main.08ac341b.js.map": "/todo-lostark/static/js/main.08ac341b.js.map",
+    "main.cd1f9ec8.js.map": "/todo-lostark/static/js/main.cd1f9ec8.js.map",
     "787.efc2152c.chunk.js.map": "/todo-lostark/static/js/787.efc2152c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3b21bc20.css",
-    "static/js/main.08ac341b.js"
+    "static/js/main.cd1f9ec8.js"
   ]
 }
