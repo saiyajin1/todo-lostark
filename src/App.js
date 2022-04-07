@@ -34,6 +34,7 @@ function App() {
   }
 
   function resetAccount() {
+    selectCharacter("none")
     setAccount(createAccount())
   }
 
