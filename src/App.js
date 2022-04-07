@@ -11,8 +11,12 @@ function App() {
   let localStorageName = "todolostark"
 
   let [account, setAccount] = useState(
-    JSON.parse(localStorage.getItem(localStorageName)) || createAccount()
+    JSON.parse(localStorage.getItem(localStorageName)) || false
   )
+
+  if (account === false) {
+    setAccount(createAccount())
+  }
 
   function createAccount() {
     let freshAcc = {
