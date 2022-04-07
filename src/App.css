@@ -162,6 +162,8 @@ button {
   border-left: 3px solid #9ac3a6;
   border-right: 3px solid #9ac3a6;
   border-top: 3px solid #9ac3a6;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
 }
 
 .Char-Controller > button {
@@ -181,6 +183,8 @@ button {
   align-items: center;
   justify-content: center;
   height: -webkit-fill-available;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
 }
 
 .Char-Tasks > .Select-Group,
@@ -208,7 +212,9 @@ img {
 
 .Danger {
   background: #d9534f;
-  color: #322d31;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 9px;
 }
 
 .Footer {
