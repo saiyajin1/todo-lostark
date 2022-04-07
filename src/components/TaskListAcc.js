@@ -24,7 +24,7 @@ const TaskListAcc = ({ account, setAccount }) => {
                 checked={account.accountDailyTasks[`${prop}`]}
               ></input>
               <label htmlFor={prop}>
-                <img src={`/${prop}.png`} alt={prop}></img>
+                <img src={`/images/${prop}.png`} alt={prop}></img>
               </label>
             </div>
           )
