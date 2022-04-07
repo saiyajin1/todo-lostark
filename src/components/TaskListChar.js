@@ -40,7 +40,7 @@ const TaskListChar = ({ account, setAccount, selectedCharacter }) => {
                   }
                 ></input>
                 <label htmlFor={prop}>
-                  <img src={`/images/${prop}.png`} alt={prop}></img>
+                  <img src={`./lostarktodo/images/${prop}.png`} alt={prop}></img>
                 </label>
               </div>
             )
