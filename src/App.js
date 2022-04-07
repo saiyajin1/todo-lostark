@@ -49,6 +49,8 @@ function App() {
       },
     }
 
+    selectCharacter(newCharacter.id)
+
     setAccount({
       ...account,
       characters: [...account.characters, newCharacter],
